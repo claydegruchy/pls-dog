@@ -36,6 +36,12 @@
     top: 30px;
 }
 
+#middleword {
+    position: absolute;
+    left: 340px;
+    top: 35px;
+}
+
 #logo1 {
     position: absolute;
     left: 150px;
@@ -57,11 +63,12 @@
 <div>
     <div id="words1" class="logo words">play</div>
     <div id="words2" class="logo words heavy">play</div>
+    <div id="middleword" class="logo words ">play</div>
     <!-- <div id="words2" class="logo words">update</div> -->
     <img id="logo1" class="image logo" src="//logo.clearbit.com/blizzard.com">
     <img id="logo2" class="image logo" src="//logo.clearbit.com/blizzard.com">
     <img id="logo3" class="image logo" src="//logo.clearbit.com/blizzard.com">
-    <a id="dog" href="https://ibb.co/H4hDmLZ"><img src="https://i.ibb.co/zx6hKWd/generic.jpg" alt="generic" border="0"></a>
+    <a id="dog" href="https://ibb.co/H4hDmLZ"><img src="https://i.imgflip.com/3pdq5v.png" style="width: 640;height: 232" alt="generic" border="0"></a>
 </div>
 <div>
     <div>
@@ -69,8 +76,12 @@
         <input id="companyInput" type="text" name="company" placeholder="blizzard.com" value="blizzard.com">
     </div>
     <div>
-        <label for="word">Phrase</label>
-        <input id="wordInput" type="text" name="word" placeholder="word you want in text" value="play">
+        <label for="word">First and last</label>
+        <input id="wordInput" type="text" name="word" placeholder="word you want in text" value="work">
+    </div>
+    <div>
+        <label for="middleWord">Middle</label>
+        <input id="middleWordInput" type="text" name="middleWord" placeholder="middleWord you want in text" value="pay">
     </div>
 </div>
 <script type="text/javascript">
@@ -83,9 +94,19 @@ companyInput.addEventListener('input', companyInputHandler);
 
 const wordInput = document.getElementById('wordInput');
 const wordInputHandler = function(e) {
-    [...document.querySelectorAll('.words')].forEach(ele => ele.innerHTML = e.target.value)
+    [...document.querySelectorAll('.words:not(#middleword)')].forEach(ele => ele.innerHTML = e.target.value)
 }
 wordInput.addEventListener('input', wordInputHandler);
+
+
+
+
+const middleWord = document.getElementById('middleWordInput');
+const middleWordHandler = function(e) {
+    [...document.querySelectorAll('#middleword')].forEach(ele => ele.innerHTML = e.target.value)
+}
+middleWord.addEventListener('input', middleWordHandler);
+
 
 
 
@@ -94,6 +115,8 @@ var params = urlObject.searchParams;
 if ([...params].length > 0) {
     companyInput.value = params.get("company");
     wordInput.value = params.get("word");
+    middleWord.value = params.get("middle");
+
 
 
 
@@ -102,4 +125,5 @@ if ([...params].length > 0) {
 companyInput.dispatchEvent(new Event("input"))
 
 wordInput.dispatchEvent(new Event("input"))
+middleWord.dispatchEvent(new Event("input"))
 </script>
