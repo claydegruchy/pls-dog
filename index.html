@@ -86,4 +86,16 @@ const wordInputHandler = function(e) {
     [...document.querySelectorAll('.words')].forEach(ele => ele.innerHTML = e.target.value)
 }
 wordInput.addEventListener('input', wordInputHandler);
+
+
+
+var urlObject = new URL(document.location.href);
+var params = urlObject.searchParams;
+if (params) {
+    companyInput.value = params.get("company");
+    companyInput.dispatchEvent(new Event("input"))
+    wordInput.value = params.get("word");
+    wordInput.dispatchEvent(new Event("input"))
+
+}
 </script>
