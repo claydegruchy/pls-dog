@@ -1,0 +1,89 @@
+<style type="text/css">
+.logo {
+    position: fixed;
+    width: 50px;
+}
+
+.words {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: #000000;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+}
+
+
+.heavy {
+    font-weight: 900;
+    font-size: 25px;
+
+}
+
+#words1 {
+    position: absolute;
+    left: 100px;
+    top: 30px;
+}
+
+#words2 {
+    position: absolute;
+    left: 550px;
+    top: 30px;
+}
+
+#logo1 {
+    position: absolute;
+    left: 150px;
+    top: 180px;
+}
+
+#logo2 {
+    position: absolute;
+    left: 370px;
+    top: 185px;
+}
+
+#logo3 {
+    position: absolute;
+    left: 570px;
+    top: 185px;
+}
+</style>
+<div>
+    <div id="words1" class="logo words">lmao</div>
+    <div id="words2" class="logo words heavy">lmao</div>
+    <!-- <div id="words2" class="logo words">update</div> -->
+    <img id="logo1" class="image logo" src="//logo.clearbit.com/spotify.com">
+    <img id="logo2" class="image logo" src="//logo.clearbit.com/spotify.com">
+    <img id="logo3" class="image logo" src="//logo.clearbit.com/spotify.com">
+    <a id="dog" href="https://ibb.co/H4hDmLZ"><img src="https://i.ibb.co/zx6hKWd/generic.jpg" alt="generic" border="0"></a>
+</div>
+<div>
+    <div>
+        <label for="company">Company</label>
+        <input id="companyInput" type="text" name="company" placeholder="blizzard">
+    </div>
+    <div>
+        <label for="word">Phrase</label>
+        <input id="wordInput" type="text" name="word" placeholder="subscribe">
+    </div>
+</div>
+<script type="text/javascript">
+const companyInput = document.getElementById('companyInput');
+const companyInputHandler = function(e) {
+    [...document.querySelectorAll('.image')].forEach(ele => ele.src = `//logo.clearbit.com/${e.target.value}.com`)
+}
+companyInput.addEventListener('input', companyInputHandler);
+
+
+const wordInput = document.getElementById('wordInput');
+const wordInputHandler = function(e) {
+    [...document.querySelectorAll('.words')].forEach(ele => ele.innerHTML = e.target.value)
+}
+wordInput.addEventListener('input', wordInputHandler);
+</script>
