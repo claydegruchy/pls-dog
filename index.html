@@ -91,7 +91,7 @@ wordInput.addEventListener('input', wordInputHandler);
 
 var urlObject = new URL(document.location.href);
 var params = urlObject.searchParams;
-if (params) {
+if ([...params].length > 0) {
     companyInput.value = params.get("company");
     companyInput.dispatchEvent(new Event("input"))
     wordInput.value = params.get("word");
