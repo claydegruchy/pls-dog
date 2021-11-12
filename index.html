@@ -76,7 +76,7 @@
 <script type="text/javascript">
 const companyInput = document.getElementById('companyInput');
 const companyInputHandler = function(e) {
-    [...document.querySelectorAll('.image')].forEach(ele => ele.src = `//logo.clearbit.com/${e.target.value}.com`)
+    [...document.querySelectorAll('.image')].forEach(ele => ele.src = `//logo.clearbit.com/${e.target.value}`)
 }
 companyInput.addEventListener('input', companyInputHandler);
 
