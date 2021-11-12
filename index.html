@@ -93,9 +93,13 @@ var urlObject = new URL(document.location.href);
 var params = urlObject.searchParams;
 if ([...params].length > 0) {
     companyInput.value = params.get("company");
-    companyInput.dispatchEvent(new Event("input"))
     wordInput.value = params.get("word");
-    wordInput.dispatchEvent(new Event("input"))
+
+
 
 }
+
+companyInput.dispatchEvent(new Event("input"))
+
+wordInput.dispatchEvent(new Event("input"))
 </script>
